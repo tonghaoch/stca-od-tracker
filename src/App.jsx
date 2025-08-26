@@ -9,14 +9,14 @@ import { Typography } from "antd";
 
 import "./App.css";
 import DM from "./DM";
-import iconIceCream from "./assets/ice-cream.png";
+import stca20 from "./assets/stca20.svg";
 import iconLaughing from "./assets/laughing.png";
 import iconSad from "./assets/sad.png";
 
 const REACTION_DELAY_TIME = 2000;
 
 function App() {
-  let [icon, setIcon] = useState(iconIceCream);
+  let [icon, setIcon] = useState(undefined);
   let [title, setTitle] = useState("Welcome to FY36 STCA OPEN DAY");
   let [subtitle, setSubtitle] = useState(
     "Please scan your Employee card to check in"
@@ -32,7 +32,7 @@ function App() {
   }, []);
 
   const resetState = useCallback(() => {
-    setIcon(iconIceCream);
+    setIcon(undefined);
     setTitle("Welcome to FY36 STCA OPEN DAY");
     setSubtitle("Please scan your Employee card to check in");
   }, []);
@@ -109,15 +109,24 @@ function App() {
     <Fragment>
       <Card
         style={{
-          width: 500,
-          height: 500,
+          width: 600,
+          height: 520,
           padding: 25,
           border: undefined,
-          backgroundColor: "rgba(255, 255, 255,0.8)",
+          backgroundColor: "rgba(255, 255, 255,0.65)",
         }}
       >
-        <Image width={300} src={icon} preview={false} />
+        <Image width={300} src={stca20} preview={false} />
         <Title level={3}>{title}</Title>
+        {
+          <Image
+            width={200}
+            height={200}
+            src={icon}
+            preview={false}
+            style={{ visibility: icon ? "visible" : "hidden" }}
+          />
+        }
         <Title level={5}>{subtitle}</Title>
       </Card>
 
