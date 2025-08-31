@@ -7,6 +7,7 @@ import {
 } from "@ant-design/icons";
 import { Typography } from "antd";
 
+import bgImage from "./assets/background.jpg"
 import "./App.css";
 import DM from "./DM";
 import stca20 from "./assets/stca20.svg";
@@ -17,7 +18,7 @@ const REACTION_DELAY_TIME = 2000;
 
 function App() {
   let [icon, setIcon] = useState(undefined);
-  let [title, setTitle] = useState("Welcome to FY36 STCA OPEN DAY");
+  let [title, setTitle] = useState("Welcome to FY26 STCA OPEN DAY");
   let [subtitle, setSubtitle] = useState(
     "Please scan your Employee card to check in"
   );
@@ -33,7 +34,7 @@ function App() {
 
   const resetState = useCallback(() => {
     setIcon(undefined);
-    setTitle("Welcome to FY36 STCA OPEN DAY");
+    setTitle("Welcome to FY26 STCA OPEN DAY");
     setSubtitle("Please scan your Employee card to check in");
   }, []);
 
@@ -107,6 +108,16 @@ function App() {
 
   return (
     <Fragment>
+      <img
+        src={bgImage}
+        style={{
+          position: "absolute",
+          width: "100vw",
+          height: "100vh",
+          objectFit: "fill",
+          zIndex: -1,
+        }}
+      />
       <Card
         style={{
           width: 600,
