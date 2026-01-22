@@ -76,7 +76,7 @@ function App() {
       } else {
         manager.logUser(scannedNumberRef.current)
         setIcon(iconLaughing)
-        setTitle("Enjoy your OPEN DAY!")
+        setTitle("Enjoy your day!")
         setSubtitle("Go explore the fun")
         setTimeout(resetState, REACTION_DELAY_TIME)
       }
@@ -173,12 +173,15 @@ function App() {
           width: 600,
           height: 520,
           padding: 25,
-          border: undefined,
-          backgroundColor: "rgba(255, 255, 255,0.65)",
+          border: 0,
+          background:
+            "linear-gradient(315deg, rgba(255, 223, 207, 0.85) 0.000%, rgba(255, 213, 156, 0.85) 20.000%, rgba(255, 200, 113, 0.85) 40.000%, rgba(255, 182, 78, 0.85) 60.000%, rgba(255, 159, 51, 0.85) 80.000%, rgba(255, 133, 34, 0.85) 100.000%)",
         }}
       >
-        <Image width={300} src={soxLogo} preview={false} />
-        <Title level={3}>{title}</Title>
+        <Image width={210} src={soxLogo} preview={false} />
+        <Title level={3} style={{ color: "#e57373" }}>
+          {title}
+        </Title>
         {
           <Image
             width={200}
@@ -188,7 +191,9 @@ function App() {
             style={{ visibility: icon ? "visible" : "hidden" }}
           />
         }
-        <Title level={5}>{subtitle}</Title>
+        <Title level={5} style={{ color: "#e57373" }}>
+          {subtitle}
+        </Title>
       </Card>
       <Switch
         checkedChildren="单次"
