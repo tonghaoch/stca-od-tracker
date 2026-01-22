@@ -1,5 +1,5 @@
 import { useEffect, useCallback, useRef, Fragment, useState } from "react"
-import { Card, Image, FloatButton } from "antd"
+import { Card, Image, FloatButton, Switch } from "antd"
 import {
   SettingOutlined,
   ReloadOutlined,
@@ -9,10 +9,10 @@ import {
 } from "@ant-design/icons"
 import { Typography } from "antd"
 
-import bgImage from "./assets/background.jpg"
+import bgImage from "./assets/SOX_SF2026_BG.png"
 import "./App.css"
 import DM from "./DM"
-import stca20 from "./assets/stca20.svg"
+import soxLogo from "./assets/SOXLogo_landscape_light.png"
 import iconLaughing from "./assets/laughing.png"
 import iconSad from "./assets/sad.png"
 
@@ -28,9 +28,9 @@ const getModeFromLocation = () => {
 
 function App() {
   let [icon, setIcon] = useState(undefined)
-  let [title, setTitle] = useState("Welcome to FY26 STCA OPEN DAY")
+  let [title, setTitle] = useState("Welcome to SOX Spring Festival Bazaar 2026")
   let [subtitle, setSubtitle] = useState(
-    "Please scan your Employee card to check in"
+    "Please scan your Employee card to check in",
   )
   let [mode, setMode] = useState(getModeFromLocation) // single | dual
 
@@ -83,7 +83,7 @@ function App() {
 
       scannedNumberRef.current = ""
     },
-    [resetState]
+    [resetState],
   )
 
   const handleKeyDown = useCallback(
@@ -94,7 +94,7 @@ function App() {
         scannedNumber.current = scannedNumber.current + event.key
       }
     },
-    [handleScan]
+    [handleScan],
   )
 
   useEffect(() => {
@@ -177,7 +177,7 @@ function App() {
           backgroundColor: "rgba(255, 255, 255,0.65)",
         }}
       >
-        <Image width={300} src={stca20} preview={false} />
+        <Image width={300} src={soxLogo} preview={false} />
         <Title level={3}>{title}</Title>
         {
           <Image
@@ -190,7 +190,13 @@ function App() {
         }
         <Title level={5}>{subtitle}</Title>
       </Card>
-
+      <Switch
+        checkedChildren="单次"
+        unCheckedChildren="双次"
+        defaultChecked
+        style={{ position: "absolute", top: "20px", right: "20px" }}
+        onChange={handleModeClick}
+      />
       <FloatButton.Group
         trigger="hover"
         type="primary"
