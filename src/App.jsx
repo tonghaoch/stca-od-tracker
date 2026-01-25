@@ -172,14 +172,24 @@ function App() {
         style={{
           width: 600,
           height: 520,
-          padding: 25,
-          border: 0,
-          background:
-            "linear-gradient(315deg, rgba(255, 223, 207, 0.85) 0.000%, rgba(255, 213, 156, 0.85) 20.000%, rgba(255, 200, 113, 0.85) 40.000%, rgba(255, 182, 78, 0.85) 60.000%, rgba(255, 159, 51, 0.85) 80.000%, rgba(255, 133, 34, 0.85) 100.000%)",
+          background: "rgba(255, 255, 255, 0.15)",
+          boxShadow: "0 8px 32px 0 rgba(31, 38, 135, 0.1)",
+          backdropFilter: "blur(14px)",
+          WebkitBackdropFilter: "blur(14px)",
+          border: "0",
+          borderRadius: "24px",
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          alignItems: "center",
+          textAlign: "center",
+          padding: "26px",
+          /* Subtle fade in on load */
+          animation: "fadeIn 1s ease-out",
         }}
       >
         <Image width={210} src={soxLogo} preview={false} />
-        <Title level={3} style={{ color: "#e57373" }}>
+        <Title level={3} style={{ color: "white" }}>
           {title}
         </Title>
         {
@@ -191,7 +201,7 @@ function App() {
             style={{ visibility: icon ? "visible" : "hidden" }}
           />
         }
-        <Title level={5} style={{ color: "#e57373" }}>
+        <Title level={5} style={{ color: "white" }}>
           {subtitle}
         </Title>
       </Card>
