@@ -1,11 +1,6 @@
-const LOCAL_STORAGE_KEY = "SOX_ICE_CREAM_HAPPY_HOUR"
-const DEFAULT_MODE = "single"
-const MODE_LIMITS = {
-  single: 1,
-  dual: 2,
-}
+import { LOCAL_STORAGE_KEY, DEFAULT_MODE, MODE_LIMITS } from "../utils/constants"
 
-export default class DM {
+export default class DataManager {
   constructor(mode = DEFAULT_MODE) {
     this.mode = mode
     const persisted = this.getItemsFromLocalStorage()
@@ -55,9 +50,7 @@ export default class DM {
 
   addToLocalStorage() {
     const serialized = Array.from(this.data.entries())
-    console.log(serialized)
     localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(serialized))
-    console.log(`Added:`, serialized)
   }
 
   getItemsFromLocalStorage() {
@@ -106,6 +99,5 @@ export default class DM {
 
   removeFromLocalStorage() {
     localStorage.removeItem(LOCAL_STORAGE_KEY)
-    console.log(`Cleanup local storage`)
   }
 }

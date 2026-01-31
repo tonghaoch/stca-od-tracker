@@ -5,4 +5,11 @@ import react from "@vitejs/plugin-react";
 export default defineConfig({
   base: "/stca-od-tracker",
   plugins: [react()],
+  css: {
+    preprocessorOptions: {
+      scss: {
+        api: "modern-compiler",
+      },
+    },
+  },
 });
